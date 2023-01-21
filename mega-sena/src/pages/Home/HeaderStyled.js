@@ -16,15 +16,7 @@ export const ContainerTitle = styled.header`
     gap: 1rem;
     padding-top: 1rem;
   }
-
-  // Sub título
-  h4 {
-    color: #ffffff;
-    font-size: 1rem;
-    @media (max-width: 768px) {
-      font-size: 1rem;
-    }
-  }
+  
 `;
 
 //Menu Dropdown
@@ -53,8 +45,11 @@ export const MenuDropDown = styled.select`
 export const Title = styled.div`
   display: flex;
   font-size: 0.7rem;
-  color: black;
+  color: blue;
   align-items: center;
+  justify-content: space-evenly;
+  color: #ffffff;
+  width: 40%;
 
   img {
     height: 2rem;
@@ -66,3 +61,12 @@ export const Title = styled.div`
     gap: 0;
   }
 `;
+
+export const DataStyled = styled.div`
+display: flex;
+color: #ffffff;
+    font-size: 1rem;
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
+`

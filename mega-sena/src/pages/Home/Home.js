@@ -1,16 +1,38 @@
 import React, { useEffect, useState } from "react";
-import { ContainerTitle, MenuDropDown, Title } from "./HeaderStyled";
-import logo from "../../Assets/Logo_Sena.png"
+import {
+  ContainerTitle,
+  DataStyled,
+  MenuDropDown,
+  Title,
+} from "./HeaderStyled";
+import logo from "../../Assets/Logo_Sena.png";
 import { Circles, ContainerCircle, ContainerRaffle } from "./RaffleStyled";
 import { ContainerMain } from "./MainContainer";
 import { selectGame } from "../../services/Request";
 
 const Home = () => {
   const [changeColor, setChangeColor] = useState("#6BEFA3");
+  const [numbers, setNumbers] = useState([]);
   const [data, setData] = useState({});
+  const [name, setName] = useState("");
+  const [gameNumber, setGameNumber] = useState("");
 
-useEffect(() => selectGame(setData),[])
+  useEffect(() => selectGame(setData, setNumbers, setName, setGameNumber), []);
 
+  let dataConcurso = data.data_concurso;
+
+  if (dataConcurso) {
+    dataConcurso = dataConcurso
+      .slice(0, 10)
+      .split("-")
+      .reverse()
+      .join()
+      .replace(/,/g, "/");
+  }
+
+  let numbersMap = numbers.map((number) => {
+    return <Circles key={number.index}>{number}</Circles>;
+  });
 
   return (
     <ContainerMain backgroundColor={changeColor}>
@@ -23,26 +45,19 @@ useEffect(() => selectGame(setData),[])
           <option value={"#FFAB64"}>LOTOMANIA</option>
           <option value={"#5AAD7D"}>TIMEMANIA</option>
           <option value={"#BFAF83"}>DIA DE SORTE</option>
-
         </MenuDropDown>
         <Title>
           <img src={logo} alt="Logo da caixa lotérica" />
-          <h1>MEGA-SENA</h1>
-          {data.arrecadacao_total}
+          <h1>{name}</h1>
         </Title>
-        <h4>Maximiliano</h4>
+        <DataStyled>
+          {data.numero_concurso} {dataConcurso}
+        </DataStyled>
       </ContainerTitle>
       {/* ====================================================================== Raffle Container */}
       <ContainerRaffle>
         <div></div>
-        <ContainerCircle>
-          <Circles>01</Circles>
-          <Circles>02</Circles>
-          <Circles>03</Circles>
-          <Circles>04</Circles>
-          <Circles>05</Circles>
-          <Circles>06</Circles>
-        </ContainerCircle>
+        <ContainerCircle>{numbersMap}</ContainerCircle>
         <p>
           Este sorteio é meramente ilustrativo e não possui ligação com a CAIXA.
         </p>
