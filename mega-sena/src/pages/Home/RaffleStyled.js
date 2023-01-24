@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const ContainerRaffle = styled.section`
   display: flex;
   box-sizing: border-box;
-  height: 100vh;
+  height: 100%;
   width: 70%;
   background-color: #efefef;
   flex-direction: column;
@@ -27,8 +27,9 @@ export const ContainerRaffle = styled.section`
 
   @media (max-width: 768px) {
     width: 100%;
-    height: 60%;
+    height: 100%;
     border-radius: 50%/30px 30px 0 0;
+    gap: 2rem;
   }
 `;
 
@@ -37,11 +38,14 @@ export const ContainerCircle = styled.div`
   display: flex;
   justify-content: space-evenly;
   width: 70%;
+  flex-wrap: wrap;
+  gap: 1rem; 
 
   @media (max-width: 768px) {
     width: 80%;
     flex-wrap: wrap;
     gap: 0.8rem;
+    height: fit-content;
   }
 `;
 
