@@ -12,14 +12,26 @@ import { selectGame } from "../../services/Request";
 
 const Home = () => {
   const [changeColor, setChangeColor] = useState("#6BEFA3");
+  const [prize, setPrize] = useState("quina")
   const [numbers, setNumbers] = useState([]);
   const [data, setData] = useState({});
   const [name, setName] = useState("");
   const [gameNumber, setGameNumber] = useState("");
 
-  useEffect(() => selectGame(setData, setNumbers, setName, setGameNumber), []);
+  useEffect(() => selectGame(setData, setNumbers, setName, setGameNumber, prize), []);
 
   let dataConcurso = data.data_concurso;
+
+  const handleMega = (event) => {
+    setChangeColor("#6BEFA3")
+    setPrize("megasena")
+  }
+
+  const handleQuina = (event) => {
+    event.target.value = setChangeColor("#8666EF")
+    setPrize("quina")
+  }
+  console.log(prize)
 
   if (dataConcurso) {
     dataConcurso = dataConcurso
@@ -38,9 +50,9 @@ const Home = () => {
     <ContainerMain backgroundColor={changeColor}>
       {/* ====================================================================== Header Container */}
       <ContainerTitle>
-        <MenuDropDown onChange={(event) => setChangeColor(event.target.value)}>
-          <option value={"#6BEFA3"}>MEGA-SENA</option>
-          <option value={"#8666EF"}>QUINA</option>
+        <MenuDropDown onChange={(event) => setPrize(event.target.value)}>
+          <option value={"megasena"}>MEGA-SENA</option>
+          <option value={"quina"}>QUINA</option>
           <option value={"#DD7AC6"}>LOTOFACIL</option>
           <option value={"#FFAB64"}>LOTOMANIA</option>
           <option value={"#5AAD7D"}>TIMEMANIA</option>
