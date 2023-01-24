@@ -15,6 +15,7 @@ export const ContainerTitle = styled.header`
     height: 40%;
     gap: 1rem;
     padding-top: 1rem;
+    margin-bottom: 1rem;
   }
   
 `;
@@ -34,10 +35,12 @@ export const MenuDropDown = styled.select`
   filter: drop-shadow(0px 3px 8px rgba(0, 0, 0, 0.031));
   margin-right: 3rem;
   background-color: ${(props) => props.backgroundColor};
+  margin-left: 3rem;
 
   @media (max-width: 768px) {
     margin-right: 0;
     width: 40%;
+    margin-left: 0;
   }
 `;
 
@@ -49,7 +52,9 @@ export const Title = styled.div`
   align-items: center;
   justify-content: space-evenly;
   color: #ffffff;
-  width: 40%;
+  width: fit-content;
+  gap: 1rem;
+
 
   img {
     height: 2rem;
@@ -65,7 +70,8 @@ export const Title = styled.div`
 export const DataStyled = styled.div`
 display: flex;
 color: #ffffff;
-    font-size: 1rem;
+font-size: 1rem;
+
     @media (max-width: 768px) {
       font-size: 1rem;
     }

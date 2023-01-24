@@ -12,26 +12,20 @@ import { selectGame } from "../../services/Request";
 
 const Home = () => {
   const [changeColor, setChangeColor] = useState("#6BEFA3");
-  const [prize, setPrize] = useState("quina")
+  const [prize, setPrize] = useState("megasena")
   const [numbers, setNumbers] = useState([]);
   const [data, setData] = useState({});
   const [name, setName] = useState("");
   const [gameNumber, setGameNumber] = useState("");
 
-  useEffect(() => selectGame(setData, setNumbers, setName, setGameNumber, prize), []);
+  useEffect(() => selectGame(setData, setNumbers, setName, setGameNumber, prize), [prize]);
 
   let dataConcurso = data.data_concurso;
 
-  const handleMega = (event) => {
-    setChangeColor("#6BEFA3")
-    setPrize("megasena")
+  const x = (y,z) => {
+    setChangeColor(y)
+    setPrize(z)
   }
-
-  const handleQuina = (event) => {
-    event.target.value = setChangeColor("#8666EF")
-    setPrize("quina")
-  }
-  console.log(prize)
 
   if (dataConcurso) {
     dataConcurso = dataConcurso
@@ -42,21 +36,21 @@ const Home = () => {
       .replace(/,/g, "/");
   }
 
-  let numbersMap = numbers.map((number) => {
-    return <Circles key={number.index}>{number}</Circles>;
+  let numbersMap = numbers.map((number , index) => {
+    return <Circles key={index}>{number}</Circles>;
   });
 
   return (
     <ContainerMain backgroundColor={changeColor}>
       {/* ====================================================================== Header Container */}
       <ContainerTitle>
-        <MenuDropDown onChange={(event) => setPrize(event.target.value)}>
-          <option value={"megasena"}>MEGA-SENA</option>
-          <option value={"quina"}>QUINA</option>
-          <option value={"#DD7AC6"}>LOTOFACIL</option>
-          <option value={"#FFAB64"}>LOTOMANIA</option>
-          <option value={"#5AAD7D"}>TIMEMANIA</option>
-          <option value={"#BFAF83"}>DIA DE SORTE</option>
+        <MenuDropDown onChange={(event) => x(event.target.value.slice(0,7), event.target.value.slice(7))}>
+          <option value={"#6BEFA3megasena"}>MEGA-SENA</option>
+          <option value={"#8666EFquina"}>QUINA</option>
+          <option value={"#DD7AC6lotofacil"}>LOTOFACIL</option>
+          <option value={"#FFAB64lotomania"}>LOTOMANIA</option>
+          <option value={"#5AAD7Dtimemania"}>TIMEMANIA</option>
+          <option value={"#BFAF83diadesorte"}>DIA DE SORTE</option>
         </MenuDropDown>
         <Title>
           <img src={logo} alt="Logo da caixa lotérica" />
