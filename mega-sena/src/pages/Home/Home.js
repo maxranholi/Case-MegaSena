@@ -22,7 +22,7 @@ const Home = () => {
 
   let dataConcurso = data.data_concurso;
 
-  const x = (y,z) => {
+  const setPrizeandColor = (y,z) => {
     setChangeColor(y)
     setPrize(z)
   }
@@ -44,7 +44,7 @@ const Home = () => {
     <ContainerMain backgroundColor={changeColor}>
       {/* ====================================================================== Header Container */}
       <ContainerTitle>
-        <MenuDropDown onChange={(event) => x(event.target.value.slice(0,7), event.target.value.slice(7))}>
+        <MenuDropDown onChange={(event) => setPrizeandColor(event.target.value.slice(0,7), event.target.value.slice(7))}>
           <option value={"#6BEFA3megasena"}>MEGA-SENA</option>
           <option value={"#8666EFquina"}>QUINA</option>
           <option value={"#DD7AC6lotofacil"}>LOTOFACIL</option>

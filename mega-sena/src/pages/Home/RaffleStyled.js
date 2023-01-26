@@ -8,7 +8,9 @@ export const ContainerRaffle = styled.section`
   width: 70%;
   background-color: #efefef;
   flex-direction: column;
-  border-radius: 90px 0 0 90px/50%;
+  border-radius: 150px 0 0 150px/50%;
+  /* border-bottom-left-radius: 150px;
+  border-top-left-radius: 20px; */
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
