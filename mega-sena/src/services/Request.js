@@ -3,7 +3,7 @@ import axios from "axios";
 export const selectGame = (setData, setNumbers, setName, setGameNumber, prize) => {
   axios
     .get(
-      `https://apiloterias.com.br/app/resultado?loteria=${prize}&token=G3VxuMWAVANPw3W`
+      `https://apiloterias.com.br/app/resultado?loteria=${prize}&token=mactWpJafZ6Mi4Z`
     )
     .then((res) => {
       setData(res.data);
