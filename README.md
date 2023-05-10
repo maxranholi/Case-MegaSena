@@ -1,4 +1,5 @@
 <h2 align="center">Case-MegaSena 🍀</h2>
+<h2 align="center">🚩 Infelizmente a API não está mais funcionando.</h2>
 
 <h2 align="center">Sobre</h2>
 <p align="justify">
